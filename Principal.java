@@ -4,6 +4,7 @@ import java.util.ArrayList;
 /**
  * Este programa permite realizar post de varios tipos, comentarlos y darles likes.
  * @author: GRUPO No.4 - FOOD 4 YOU
+ * podras gestionar toda la ayuda que quieras
  * @version: 04/11/2022
 */
 
