@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.net.NetworkInterface;
 import java.util.ArrayList;
 
 /**
@@ -36,10 +37,15 @@ public class Principal {
         //Variables - Usuarios y Familia
         boolean outUser = false;
         int ansUser = 0;
+        ArrayList<Usuario> listUsuario = new ArrayList<>();
+
         boolean outFam = false;
         int ansFam = 0;
+        ArrayList<Familia> listFamilia = new ArrayList<>();
+
         boolean outRol = false;
         int ansRol = 0;
+        ArrayList<Rol> listRol = new ArrayList<>();
 
         while(outPrincipal == false){
             System.out.println("================================ Bienvenidos Food4You ================================");
@@ -51,8 +57,9 @@ public class Principal {
             System.out.println("6.......................................................................Gestor Familia");      
             System.out.println("7......................................................................Gestor Facturas");      
             System.out.println("8................................................................................Salir");      
-            System.out.println("Por favor, seleccione una opción... \n");
+            System.out.println("Por favor, seleccione una opción...");
             ansPrincipal = Integer.parseInt(teclado.nextLine());
+            System.out.println("");
 
             if(ansPrincipal == 1){
 
@@ -63,6 +70,7 @@ public class Principal {
                     System.out.println("3...........................................Salir");      
                     System.out.println("Por favor, seleccione una opción...");
                     ansCat = Integer.parseInt(teclado.nextLine());
+                    System.out.println("");
 
                     if(ansCat == 1){
                         int ansSubCat = 0;
@@ -79,6 +87,7 @@ public class Principal {
                         System.out.println("Deseas eliminar o editar? ");
                         System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
                         ansSubCat = Integer.parseInt(teclado.nextLine());
+                        System.out.println("");
 
                         if(ansSubCat == 1){
                             System.out.println("Ingresa el id: ");
@@ -93,6 +102,8 @@ public class Principal {
                             listCat.get(id).setNombre(teclado.nextLine());
                             System.out.println("Ingresa una breve descripción: ");
                             listCat.get(id).setDescripcion(teclado.nextLine());
+                        }else{
+                            System.out.println("OPCION NO VALIDA...");
                         }
 
 
@@ -123,6 +134,8 @@ public class Principal {
                     System.out.println("3...........................................Salir");      
                     System.out.println("Por favor, seleccione una opción...");
                     ansSup = Integer.parseInt(teclado.nextLine());
+                    System.out.println("");
+
                     if(ansSup == 1){
 
                         int ansSubSupermercado = 0;
@@ -139,6 +152,7 @@ public class Principal {
                         System.out.println("Deseas eliminar o editar? ");
                         System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
                         ansSubSupermercado = Integer.parseInt(teclado.nextLine());
+                        System.out.println("");
 
                         if(ansSubSupermercado == 1){
                             System.out.println("Ingresa el id: ");
@@ -155,6 +169,8 @@ public class Principal {
                             listSupermercado.get(id).setDescripción(teclado.nextLine());
                             System.out.println("Ingresa el nivel ded supermercado: ");
                             listSupermercado.get(id).setNivel(Integer.parseInt(teclado.nextLine()));
+                        }else{
+                            System.out.println("OPCION NO VALIDA...");
                         }
 
                     }else if(ansSup == 2){
@@ -183,10 +199,11 @@ public class Principal {
                     System.out.println("-------------------------------GESTOR: PRODUCTOS");
                     System.out.println("1.............................................VER");        
                     System.out.println("2.........................................AGREGAR");                                               
-                    System.out.println("5...........................................Salir");      
+                    System.out.println("3...........................................Salir");      
                     System.out.println("Por favor, seleccione una opción...");
                     ansProd = Integer.parseInt(teclado.nextLine());
-                    
+                    System.out.println("");
+
                     if(ansProd == 1){       
                         int id = 0;
                         int ansSubProd = 0;
@@ -203,6 +220,7 @@ public class Principal {
                         System.out.println("Deseas eliminar o editar? ");
                         System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
                         ansSubProd = Integer.parseInt(teclado.nextLine());
+                        System.out.println("");
 
                         if(ansSubProd == 1){
                             System.out.println("Ingresa el id: ");
@@ -217,6 +235,7 @@ public class Principal {
 
                             System.out.println("Ingresa el id: ");
                             id = Integer.parseInt(teclado.nextLine());
+                            System.out.println("");
 
                             //Manejo de categorias
                             System.out.println("Ingresa el ID de la categoria a elegir: ");
@@ -242,7 +261,7 @@ public class Principal {
                             listAlimento.get(id).setSupermercado(listSupermercado.get(idSupSelect));
 
                             //Información extra
-                            System.out.println("Ingresa el nombrre del Alimento: ");
+                            System.out.println("Ingresa el nombre del Alimento: ");
                             listAlimento.get(id).setNombre(teclado.nextLine());
 
                             System.out.println("Ingresa el valor nutricional del alimento: ");
@@ -251,11 +270,8 @@ public class Principal {
                             System.out.println("Ingresa el stock actual del alimento");
                             listAlimento.get(id).setCantidad(Integer.parseInt(teclado.nextLine()));
                             
-                        }else if(ansSubProd == 3){
-                            System.out.println("SALIENDO...");
-                            outSup = true;
                         }else{
-                            System.out.println("Opción no valida, intetalo nuevamente.");
+                            System.out.println("OPCION NO VALIDA...");
                         }
 
                     }else if(ansProd == 2){
@@ -307,7 +323,7 @@ public class Principal {
                         System.out.println("Opción no valida, intetalo nuevamente.");
                     }
                 }
-                
+
             }else if(ansPrincipal == 4){
                 while(outUser == false){
                     System.out.println("-------------------------------GESTOR: Usuarios");
@@ -317,16 +333,85 @@ public class Principal {
                     System.out.println("4........................................ELIMINAR");                        
                     System.out.println("5...........................................Salir");      
                     System.out.println("Por favor, seleccione una opción...");
+                    ansUser = Integer.parseInt(teclado.nextLine());
+                    System.out.println("");
 
                     if(ansUser == 1){
-                        //Codigo sub menu Usuarios
+                        int id = 0;
+                        int newId = 0;
+                        int ansSubUsuario = 0;
+
+                        for(Usuario usuario : listUsuario){ 
+                            System.out.println("================================== " + id  + "   |   " +  usuario.getUsername() + " ==================================");                                               
+                            System.out.println("Nombre: " + usuario.getName() + " | Telefono: " + usuario.getTelefono() + " | Rol: " + usuario.getRol().getNombre());                           
+                            System.out.println("==============================================================================");                                               
+                            id++;       
+                        }
+
+                        System.out.println("Deseas eliminar o editar? ");
+                        System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
+                        ansSubUsuario = Integer.parseInt(teclado.nextLine());
+                        System.out.println("");
+
+                        if(ansSubUsuario == 1){
+                            System.out.println("Ingresa el id: ");
+                            newId = Integer.parseInt(teclado.nextLine());
+                            listUsuario.remove(newId);
+
+                        }else if(ansSubUsuario == 2){
+                            System.out.println("Ingresa el id: ");
+                            newId = Integer.parseInt(teclado.nextLine());
+
+                            System.out.println("Ingresa el nombre");
+                            listUsuario.get(newId).setName(teclado.nextLine());
+                            System.out.println("Ingresa el username");
+                            listUsuario.get(newId).setUsername(teclado.nextLine());
+                            System.out.println("Ingresa la contraseña");
+                            listUsuario.get(newId).setPassword(teclado.nextLine());
+                            System.out.println("Ingresa el telefono");
+                            listUsuario.get(newId).setTelefono(teclado.nextLine());
+    
+                            System.out.println("Selecciona un rol");
+                            int idRol = 0;
+                            int idSelect = 0;
+                            for(Rol rol : listRol){ 
+                                System.out.println("======================================= " + idRol + " =======================================");                                               
+                                System.out.println("Nombre: " + rol.getNombre() + " | Descripción: " + rol.getDescripcion());                           
+                                System.out.println("==============================================================================");                                               
+                                idRol++;       
+                            }
+                            idSelect = Integer.parseInt(teclado.nextLine());
+                            listUsuario.get(newId).setRol(listRol.get(idSelect));
+                        }else{
+                            System.out.println("OPCION NO VALIDA...");
+                        }
+
                     }else if(ansUser == 2){
-                        //Codigo sub menu Usuarios
+
+                        Usuario usuario = new Usuario();
+
+                        System.out.println("Ingresa el nombre");
+                        usuario.setName(teclado.nextLine());
+                        System.out.println("Ingresa el username");
+                        usuario.setUsername(teclado.nextLine());
+                        System.out.println("Ingresa la contraseña");
+                        usuario.setPassword(teclado.nextLine());
+                        System.out.println("Ingresa el telefono");
+                        usuario.setTelefono(teclado.nextLine());
+
+                        System.out.println("Selecciona un rol");
+                        int id = 0;
+                        int idSelect = 0;
+                        for(Rol rol : listRol){ 
+                            System.out.println("======================================= " + id + " =======================================");                                               
+                            System.out.println("Nombre: " + rol.getNombre() + " | Descripción: " + rol.getDescripcion());                           
+                            System.out.println("==============================================================================");                                               
+                            id++;       
+                        }
+                        idSelect = Integer.parseInt(teclado.nextLine());
+                        usuario.setRol(listRol.get(idSelect));
+
                     }else if(ansUser == 3){
-                        //Codigo sub menu Usuarios
-                    }else if(ansUser == 4){
-                        //Codigo sub menu Usuarios
-                    }else if(ansUser == 5){
                         System.out.println("SALIENDO...");
                         outUser = true;
                     }else{
@@ -338,21 +423,58 @@ public class Principal {
                 while(outRol == false){
                     System.out.println("-------------------------------GESTOR: Roles");
                     System.out.println("1.............................................VER");        
-                    System.out.println("2.........................................AGREGAR");        
-                    System.out.println("3..........................................EDITAR");                      
-                    System.out.println("4........................................ELIMINAR");                        
+                    System.out.println("2.........................................AGREGAR");                                                   
                     System.out.println("5...........................................Salir");      
                     System.out.println("Por favor, seleccione una opción...");
+                    ansRol = Integer.parseInt(teclado.nextLine());
+                    System.out.println("");
 
                     if(ansRol == 1){
-                        //Codigo sub menu Roles
+                        int newId = 0;
+                        int id = 0;
+                        int ansSubRol = 0;
+
+                        for(Rol rol : listRol){ 
+                            System.out.println("======================================= " + id + " =======================================");                                               
+                            System.out.println("Nombre: " + rol.getNombre() + " | Descripción: " + rol.getDescripcion());                           
+                            System.out.println("==============================================================================");                                               
+                            id++;       
+                        }
+
+                        System.out.println("Deseas eliminar o editar? ");
+                        System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
+                        ansSubRol = Integer.parseInt(teclado.nextLine());
+                        System.out.println("");
+
+                        if(ansSubRol == 1){
+                            System.out.println("Ingresa el id: ");
+                            newId = Integer.parseInt(teclado.nextLine());
+                            listRol.remove(newId);
+
+                        }else if(ansSubRol == 2){
+                            System.out.println("Ingresa el id: ");
+                            newId = Integer.parseInt(teclado.nextLine());
+
+                            System.out.println("Ingrese el nombre: ");
+                            listRol.get(newId).setNombre(teclado.nextLine());
+                            System.out.println("Ingrese una breve descripción");
+                            listRol.get(newId).setDescripcion(teclado.nextLine());
+                        }else{
+                            System.out.println("OPCION NO VALIDA...");
+                        }
+
                     }else if(ansRol == 2){
-                        //Codigo sub menu Roles
+
+                        Rol newRol = new Rol();
+
+                        System.out.println("Ingrese el nombre: ");
+                        newRol.setNombre(teclado.nextLine());
+                        System.out.println("Ingrese una breve descripción");
+                        newRol.setDescripcion(teclado.nextLine());
+
+                        listRol.add(newRol);
+
                     }else if(ansRol == 3){
-                        //Codigo sub menu Roles
-                    }else if(ansRol == 4){
-                        //Codigo sub menu Roles
-                    }else if(ansRol == 5){
                         System.out.println("SALIENDO...");
                         outRol = true;
                     }else{
@@ -369,15 +491,64 @@ public class Principal {
                     System.out.println("4........................................ELIMINAR");                        
                     System.out.println("5...........................................Salir");      
                     System.out.println("Por favor, seleccione una opción...");
+                    ansFam = Integer.parseInt(teclado.nextLine());
+                    System.out.println("");
 
                     if(ansFam == 1){
-                        //Familia
+                        int newId = 0;
+                        int id = 0;
+                        int ansSubFam = 0;
+
+                        for(Familia familia : listFamilia){ 
+                            System.out.println("======================================= " + id + " =======================================");                                               
+                            System.out.println("Apellido: " + familia.getApellido() + " | Pobreza: " + familia.getSituacionPobreza());                           
+                            System.out.println("Niños: " + familia.getCantNiños() + " | Adultos: " + familia.getCantAdultos() + " | Total: " + familia.getTotalMiembros());                           
+                            System.out.println("==============================================================================");                                               
+                            id++;       
+                        }
+
+                        System.out.println("Deseas eliminar o editar? ");
+                        System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
+                        ansSubFam = Integer.parseInt(teclado.nextLine());
+                        System.out.println("");
+                        
+                        if(ansSubFam == 1){
+                            System.out.println("Ingresa el id: ");
+                            newId = Integer.parseInt(teclado.nextLine());
+                            listFamilia.remove(newId);
+
+                        }else if(ansSubFam == 2){
+                            System.out.println("Ingresa el id: ");
+                            newId = Integer.parseInt(teclado.nextLine());
+
+                            System.out.println("Ingresa el apellido: ");       
+                            listFamilia.get(newId).setApellido(teclado.nextLine());                 
+                            System.out.println("Ingresa el total de niños: ");
+                            listFamilia.get(newId).setCantNiños(Integer.parseInt(teclado.nextLine()));
+                            System.out.println("Ingresa el total de adultos: ");
+                            listFamilia.get(newId).setCantAdultos(Integer.parseInt(teclado.nextLine()));
+                            listFamilia.get(newId).setTotalMiembros(listFamilia.get(newId).getCantAdultos() + listFamilia.get(newId).getCantNiños());
+                            System.out.println("Ingresa la situación de pobreza: ");
+                            listFamilia.get(newId).setSituacionPobreza(Integer.parseInt(teclado.nextLine()));
+                        }else{
+                            System.out.println("OPCION NO VALIDA...");
+                        }
+
                     }else if(ansFam == 2){
-                        //Familia
-                    }else if(ansFam == 3){
-                        //Familia
-                    }else if(ansFam == 4){
-                        //Familia
+                        Familia newFamilia = new Familia();
+
+                        System.out.println("Ingresa el apellido: ");       
+                        newFamilia.setApellido(teclado.nextLine());                 
+                        System.out.println("Ingresa el total de niños: ");
+                        newFamilia.setCantNiños(Integer.parseInt(teclado.nextLine()));
+                        System.out.println("Ingresa el total de adultos: ");
+                        newFamilia.setCantAdultos(Integer.parseInt(teclado.nextLine()));
+                        newFamilia.setTotalMiembros(newFamilia.getCantAdultos() + newFamilia.getCantNiños());
+                        System.out.println("Ingresa la situación de pobreza: ");
+                        newFamilia.setSituacionPobreza(Integer.parseInt(teclado.nextLine()));
+
+                        listFamilia.add(newFamilia);
+
                     }else if(ansFam == 5){
                         System.out.println("SALIENDO...");
                         outFam = true;
@@ -398,13 +569,13 @@ public class Principal {
                     System.out.println("Por favor, seleccione una opción...");
 
                     if(ansFac == 1){
-                        //Familia
+                        //Factura
                     }else if(ansFac == 2){
-                        //Familia
+                        //Factura
                     }else if(ansFac == 3){
-                        //Familia
+                        //Factura
                     }else if(ansFac == 4){
-                        //Familia
+                        //Factura
                     }else if(ansFac == 5){
                         System.out.println("SALIENDO...");
                         outFac = true;
