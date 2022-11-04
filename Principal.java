@@ -67,7 +67,7 @@ public class Principal {
                         //SUB-CODIGO Categorias
                     }else if(ansCat == 5){
                         System.out.println("SALIENDO...");
-                        outPrincipal = true;
+                        outCat = true;
                     }else{
                         System.out.println("Opción no valida, intetalo nuevamente.");
                     }
@@ -85,29 +85,126 @@ public class Principal {
                     System.out.println("Por favor, seleccione una opción...");
 
                     if(ansProd == 1){
-                        //SUB-CODIGO Categorias
+                        //SUB-CODIGO Productos
                     }else if(ansProd == 2){
-                        //SUB-CODIGO Categorias
+                        //SUB-CODIGO Productos
                     }else if(ansProd == 3){
-                        //SUB-CODIGO Categorias
+                        //SUB-CODIGO Productos
                     }else if(ansProd == 4){
-                        //SUB-CODIGO Categorias
+                        //SUB-CODIGO Productos
                     }else if(ansProd == 5){
                         System.out.println("SALIENDO...");
-                        outPrincipal = true;
+                        outProd = true;
                     }else{
                         System.out.println("Opción no valida, intetalo nuevamente.");
                     }
                 }
 
             }else if(ansPrincipal1 == 3){
-                //Codigo Usuarios
+                while(outUser == false){
+                    System.out.println("-------------------------------GESTOR: Usuarios");
+                    System.out.println("1.............................................VER");        
+                    System.out.println("2.........................................AGREGAR");        
+                    System.out.println("3..........................................EDITAR");                      
+                    System.out.println("4........................................ELIMINAR");                        
+                    System.out.println("5...........................................Salir");      
+                    System.out.println("Por favor, seleccione una opción...");
+
+                    if(ansUser == 1){
+                        //Codigo sub menu Usuarios
+                    }else if(ansUser == 2){
+                        //Codigo sub menu Usuarios
+                    }else if(ansUser == 3){
+                        //Codigo sub menu Usuarios
+                    }else if(ansUser == 4){
+                        //Codigo sub menu Usuarios
+                    }else if(ansUser == 5){
+                        System.out.println("SALIENDO...");
+                        outUser = true;
+                    }else{
+                        System.out.println("Opción no valida, intetalo nuevamente.");
+                    }
+                }
+
             }else if(ansPrincipal1 == 4){
-                //Codigo Roles
+                while(outRol == false){
+                    System.out.println("-------------------------------GESTOR: Roles");
+                    System.out.println("1.............................................VER");        
+                    System.out.println("2.........................................AGREGAR");        
+                    System.out.println("3..........................................EDITAR");                      
+                    System.out.println("4........................................ELIMINAR");                        
+                    System.out.println("5...........................................Salir");      
+                    System.out.println("Por favor, seleccione una opción...");
+
+                    if(ansRol == 1){
+                        //Codigo sub menu Roles
+                    }else if(ansRol == 2){
+                        //Codigo sub menu Roles
+                    }else if(ansRol == 3){
+                        //Codigo sub menu Roles
+                    }else if(ansRol == 4){
+                        //Codigo sub menu Roles
+                    }else if(ansRol == 5){
+                        System.out.println("SALIENDO...");
+                        outRol = true;
+                    }else{
+                        System.out.println("Opción no valida, intetalo nuevamente.");
+                    }
+                }
+
             }else if(ansPrincipal1 == 5){
-                //Codigo Familia
+                while(outFam == false){
+                    System.out.println("-------------------------------GESTOR: Familia");
+                    System.out.println("1.............................................VER");        
+                    System.out.println("2.........................................AGREGAR");        
+                    System.out.println("3..........................................EDITAR");                      
+                    System.out.println("4........................................ELIMINAR");                        
+                    System.out.println("5...........................................Salir");      
+                    System.out.println("Por favor, seleccione una opción...");
+
+                    if(ansFam == 1){
+                        //Familia
+                    }else if(ansFam == 2){
+                        //Familia
+                    }else if(ansFam == 3){
+                        //Familia
+                    }else if(ansFam == 4){
+                        //Familia
+                    }else if(ansFam == 5){
+                        System.out.println("SALIENDO...");
+                        outFam = true;
+                    }else{
+                        System.out.println("Opción no valida, intetalo nuevamente.");
+                    }
+                }
+
             }else if(ansPrincipal1 == 6){
-                //Codigo Facturras
+
+                while(outFac == false){
+                    System.out.println("-------------------------------GESTOR: Facturas");
+                    System.out.println("1.............................................VER");        
+                    System.out.println("2.........................................AGREGAR");        
+                    System.out.println("3..........................................EDITAR");                      
+                    System.out.println("4........................................ELIMINAR");                        
+                    System.out.println("5...........................................Salir");      
+                    System.out.println("Por favor, seleccione una opción...");
+
+                    if(ansFac == 1){
+                        //Familia
+                    }else if(ansFac == 2){
+                        //Familia
+                    }else if(ansFac == 3){
+                        //Familia
+                    }else if(ansFac == 4){
+                        //Familia
+                    }else if(ansFac == 5){
+                        System.out.println("SALIENDO...");
+                        outFac = true;
+                    }else{
+                        System.out.println("Opción no valida, intetalo nuevamente.");
+                    }
+                }
+
             }else if(ansPrincipal1 == 7){
                 System.out.println("SALIENDO...");
                 outPrincipal = true;
