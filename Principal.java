@@ -153,9 +153,58 @@ public class Principal {
                 }
 
             }else if(ansPrincipal1 == 5){
-                //Codigo Familia
+                while(outFam == false){
+                    System.out.println("-------------------------------GESTOR: Familia");
+                    System.out.println("1.............................................VER");        
+                    System.out.println("2.........................................AGREGAR");        
+                    System.out.println("3..........................................EDITAR");                      
+                    System.out.println("4........................................ELIMINAR");                        
+                    System.out.println("5...........................................Salir");      
+                    System.out.println("Por favor, seleccione una opción...");
+
+                    if(ansFam == 1){
+                        //Familia
+                    }else if(ansFam == 2){
+                        //Familia
+                    }else if(ansFam == 3){
+                        //Familia
+                    }else if(ansFam == 4){
+                        //Familia
+                    }else if(ansFam == 5){
+                        System.out.println("SALIENDO...");
+                        outFam = true;
+                    }else{
+                        System.out.println("Opción no valida, intetalo nuevamente.");
+                    }
+                }
+
             }else if(ansPrincipal1 == 6){
-                //Codigo Facturras
+
+                while(outFac == false){
+                    System.out.println("-------------------------------GESTOR: Facturas");
+                    System.out.println("1.............................................VER");        
+                    System.out.println("2.........................................AGREGAR");        
+                    System.out.println("3..........................................EDITAR");                      
+                    System.out.println("4........................................ELIMINAR");                        
+                    System.out.println("5...........................................Salir");      
+                    System.out.println("Por favor, seleccione una opción...");
+
+                    if(ansFac == 1){
+                        //Familia
+                    }else if(ansFac == 2){
+                        //Familia
+                    }else if(ansFac == 3){
+                        //Familia
+                    }else if(ansFac == 4){
+                        //Familia
+                    }else if(ansFac == 5){
+                        System.out.println("SALIENDO...");
+                        outFac = true;
+                    }else{
+                        System.out.println("Opción no valida, intetalo nuevamente.");
+                    }
+                }
+
             }else if(ansPrincipal1 == 7){
                 System.out.println("SALIENDO...");
                 outPrincipal = true;
