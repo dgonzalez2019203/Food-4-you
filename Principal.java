@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.net.NetworkInterface;
 import java.util.ArrayList;
 
 /**
@@ -57,8 +56,9 @@ public class Principal {
             System.out.println("6.......................................................................Gestor Familia");      
             System.out.println("7......................................................................Gestor Facturas");      
             System.out.println("8................................................................................Salir");      
-            System.out.println("Por favor, seleccione una opción... \n");
+            System.out.println("Por favor, seleccione una opción...");
             ansPrincipal = Integer.parseInt(teclado.nextLine());
+            System.out.println("");
 
             if(ansPrincipal == 1){
 
@@ -69,37 +69,48 @@ public class Principal {
                     System.out.println("3...........................................Salir");      
                     System.out.println("Por favor, seleccione una opción...");
                     ansCat = Integer.parseInt(teclado.nextLine());
+                    System.out.println("");
 
                     if(ansCat == 1){
                         int ansSubCat = 0;
                         int newId = 0;
                         int id = 0;
 
-                        for(Categoria categoria : listCat){ 
-                            System.out.println("======================================= " + newId + " =======================================");                                               
-                            System.out.println("Nombre: " + categoria.getNombre() + " | Descripción: " + categoria.getDescripcion() + "");                            
-                            System.out.println("==============================================================================");                                               
-                            newId++;       
+                        if(listCat.size() > 0){
+                            for(Categoria categoria : listCat){ 
+                                System.out.println("======================================= " + newId + " =======================================");                                               
+                                System.out.println("Nombre: " + categoria.getNombre() + " | Descripción: " + categoria.getDescripcion() + "");                            
+                                System.out.println("==============================================================================");                                               
+                                newId++;       
+                            }
+    
+                            System.out.println("Deseas eliminar o editar? ");
+                            System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
+                            ansSubCat = Integer.parseInt(teclado.nextLine());
+                            System.out.println("");
+
+                            if(ansSubCat == 1){
+                                System.out.println("Ingresa el id: ");
+                                id = Integer.parseInt(teclado.nextLine());
+                                listCat.remove(id);
+    
+                            }else if(ansSubCat == 2){
+                                System.out.println("Ingresa el id: ");
+                                id = Integer.parseInt(teclado.nextLine());
+                                
+                                System.out.println("Ingresa el nombre de la categoria: ");
+                                listCat.get(id).setNombre(teclado.nextLine());
+                                System.out.println("Ingresa una breve descripción: ");
+                                listCat.get(id).setDescripcion(teclado.nextLine());
+                            }else{
+                                System.out.println("OPCION NO VALIDA...");
+                            }
+
+                        }else{
+                            System.out.println("NO HAY REGISTROS");
                         }
 
-                        System.out.println("Deseas eliminar o editar? ");
-                        System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
-                        ansSubCat = Integer.parseInt(teclado.nextLine());
 
-                        if(ansSubCat == 1){
-                            System.out.println("Ingresa el id: ");
-                            id = Integer.parseInt(teclado.nextLine());
-                            listCat.remove(id);
-
-                        }else if(ansSubCat == 2){
-                            System.out.println("Ingresa el id: ");
-                            id = Integer.parseInt(teclado.nextLine());
-                            
-                            System.out.println("Ingresa el nombre de la categoria: ");
-                            listCat.get(id).setNombre(teclado.nextLine());
-                            System.out.println("Ingresa una breve descripción: ");
-                            listCat.get(id).setDescripcion(teclado.nextLine());
-                        }
 
 
                     }else if(ansCat == 2){                        
@@ -129,39 +140,50 @@ public class Principal {
                     System.out.println("3...........................................Salir");      
                     System.out.println("Por favor, seleccione una opción...");
                     ansSup = Integer.parseInt(teclado.nextLine());
+                    System.out.println("");
+
                     if(ansSup == 1){
 
-                        int ansSubSupermercado = 0;
-                        int newId = 0;
-                        int id = 0;
-
-                        for(Supermercado supermercado : listSupermercado){ 
-                            System.out.println("======================================= " + newId + " =======================================");                                               
-                            System.out.println("Nombre: " + supermercado.getNombre() + " | Descripción: " + supermercado.getDescripción() + " | Nivel: " + supermercado.getNivel());                            
-                            System.out.println("==============================================================================");                                               
-                            newId++;       
+                        if(listSupermercado.size() > 0){
+                            int ansSubSupermercado = 0;
+                            int newId = 0;
+                            int id = 0;
+    
+                            for(Supermercado supermercado : listSupermercado){ 
+                                System.out.println("======================================= " + newId + " =======================================");                                               
+                                System.out.println("Nombre: " + supermercado.getNombre() + " | Descripción: " + supermercado.getDescripción() + " | Nivel: " + supermercado.getNivel());                            
+                                System.out.println("==============================================================================");                                               
+                                newId++;       
+                            }
+    
+                            System.out.println("Deseas eliminar o editar? ");
+                            System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
+                            ansSubSupermercado = Integer.parseInt(teclado.nextLine());
+                            System.out.println("");
+    
+                            if(ansSubSupermercado == 1){
+                                System.out.println("Ingresa el id: ");
+                                id = Integer.parseInt(teclado.nextLine());
+                                listSupermercado.remove(id);
+    
+                            }else if(ansSubSupermercado == 2){
+                                System.out.println("Ingresa el id: ");
+                                id = Integer.parseInt(teclado.nextLine());
+                                
+                                System.out.println("Ingresa el nombre del supermerrcado: ");
+                                listSupermercado.get(id).setNombre(teclado.nextLine());
+                                System.out.println("Ingresa la descripción del supermercado: ");
+                                listSupermercado.get(id).setDescripción(teclado.nextLine());
+                                System.out.println("Ingresa el nivel ded supermercado: ");
+                                listSupermercado.get(id).setNivel(Integer.parseInt(teclado.nextLine()));
+                            }else{
+                                System.out.println("OPCION NO VALIDA...");
+                            }
+                        }else{
+                            System.out.println("NO HAY REGISTROS");
                         }
 
-                        System.out.println("Deseas eliminar o editar? ");
-                        System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
-                        ansSubSupermercado = Integer.parseInt(teclado.nextLine());
 
-                        if(ansSubSupermercado == 1){
-                            System.out.println("Ingresa el id: ");
-                            id = Integer.parseInt(teclado.nextLine());
-                            listSupermercado.remove(id);
-
-                        }else if(ansSubSupermercado == 2){
-                            System.out.println("Ingresa el id: ");
-                            id = Integer.parseInt(teclado.nextLine());
-                            
-                            System.out.println("Ingresa el nombre del supermerrcado: ");
-                            listSupermercado.get(id).setNombre(teclado.nextLine());
-                            System.out.println("Ingresa la descripción del supermercado: ");
-                            listSupermercado.get(id).setDescripción(teclado.nextLine());
-                            System.out.println("Ingresa el nivel ded supermercado: ");
-                            listSupermercado.get(id).setNivel(Integer.parseInt(teclado.nextLine()));
-                        }
 
                     }else if(ansSup == 2){
                         Supermercado supermercado = new Supermercado();
@@ -189,80 +211,86 @@ public class Principal {
                     System.out.println("-------------------------------GESTOR: PRODUCTOS");
                     System.out.println("1.............................................VER");        
                     System.out.println("2.........................................AGREGAR");                                               
-                    System.out.println("5...........................................Salir");      
+                    System.out.println("3...........................................Salir");      
                     System.out.println("Por favor, seleccione una opción...");
                     ansProd = Integer.parseInt(teclado.nextLine());
-                    
+                    System.out.println("");
+
                     if(ansProd == 1){       
-                        int id = 0;
-                        int ansSubProd = 0;
-                        int newId = 0;
-                        for(Alimento alimento : listAlimento){ 
-                            System.out.println("======================================= " + id + " =======================================");                                               
-                            System.out.println("Nombre: " + alimento.getNombre() + " | Nutricion: " + alimento.getValNutricional() + "");                            
-                            System.out.println("Cantidad: " + alimento.getCantidad() + " | Supermercado: " + alimento.getSupermercado().getNombre() + " | Categoria: " + alimento.getCategoria().getNombre());                            
-                            System.out.println("==============================================================================");                                               
-                            id++;       
-                        }
 
-                        
-                        System.out.println("Deseas eliminar o editar? ");
-                        System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
-                        ansSubProd = Integer.parseInt(teclado.nextLine());
-
-                        if(ansSubProd == 1){
-                            System.out.println("Ingresa el id: ");
-                            id = Integer.parseInt(teclado.nextLine());
-                            listAlimento.remove(id);
-
-                        }else if(ansSubProd == 2){
-                            int idCat = 0;
-                            int idCatSelect = 00;                    
-                            int idSup = 0;
-                            int idSupSelect = 0;
-
-                            System.out.println("Ingresa el id: ");
-                            id = Integer.parseInt(teclado.nextLine());
-
-                            //Manejo de categorias
-                            System.out.println("Ingresa el ID de la categoria a elegir: ");
-                            for(Categoria categoria : listCat){ 
-                                System.out.println("======================================= " + idCat + " =======================================");                                               
-                                System.out.println("Nombre: " + categoria.getNombre() + " | Descripción: " + categoria.getDescripcion() + "");                            
+                        if(listAlimento.size() > 0){
+                            int id = 0;
+                            int ansSubProd = 0;
+                            int newId = 0;
+                            for(Alimento alimento : listAlimento){ 
+                                System.out.println("======================================= " + id + " =======================================");                                               
+                                System.out.println("Nombre: " + alimento.getNombre() + " | Nutricion: " + alimento.getValNutricional() + "");                            
+                                System.out.println("Cantidad: " + alimento.getCantidad() + " | Supermercado: " + alimento.getSupermercado().getNombre() + " | Categoria: " + alimento.getCategoria().getNombre());                            
                                 System.out.println("==============================================================================");                                               
-                                idCat++;       
+                                id++;       
                             }
-
-                            idCatSelect = Integer.parseInt(teclado.nextLine());
-                            listAlimento.get(id).setCategoria(listCat.get(idCatSelect));
-
-                            //Manejo de Supermercados
-                            for(Supermercado supermercado : listSupermercado){ 
-                                System.out.println("======================================= " + idSup + " =======================================");                                               
-                                System.out.println("Nombre: " + supermercado.getNombre() + " | Descripción: " + supermercado.getDescripción() + " | Nivel: " + supermercado.getNivel());                            
-                                System.out.println("==============================================================================");                                               
-                                idSup++;       
-                            }
-
-                            idSupSelect = Integer.parseInt(teclado.nextLine());
-                            listAlimento.get(id).setSupermercado(listSupermercado.get(idSupSelect));
-
-                            //Información extra
-                            System.out.println("Ingresa el nombrre del Alimento: ");
-                            listAlimento.get(id).setNombre(teclado.nextLine());
-
-                            System.out.println("Ingresa el valor nutricional del alimento: ");
-                            listAlimento.get(id).setValNutricional(teclado.nextLine());
-
-                            System.out.println("Ingresa el stock actual del alimento");
-                            listAlimento.get(id).setCantidad(Integer.parseInt(teclado.nextLine()));
+    
                             
-                        }else if(ansSubProd == 3){
-                            System.out.println("SALIENDO...");
-                            outSup = true;
+                            System.out.println("Deseas eliminar o editar? ");
+                            System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
+                            ansSubProd = Integer.parseInt(teclado.nextLine());
+                            System.out.println("");
+    
+                            if(ansSubProd == 1){
+                                System.out.println("Ingresa el id: ");
+                                newId = Integer.parseInt(teclado.nextLine());
+                                listAlimento.remove(newId);
+    
+                            }else if(ansSubProd == 2){
+                                int idCat = 0;
+                                int idCatSelect = 00;                    
+                                int idSup = 0;
+                                int idSupSelect = 0;
+    
+                                System.out.println("Ingresa el id: ");
+                                newId = Integer.parseInt(teclado.nextLine());
+                                System.out.println("");
+    
+                                //Manejo de categorias
+                                System.out.println("Ingresa el ID de la categoria a elegir: ");
+                                for(Categoria categoria : listCat){ 
+                                    System.out.println("======================================= " + idCat + " =======================================");                                               
+                                    System.out.println("Nombre: " + categoria.getNombre() + " | Descripción: " + categoria.getDescripcion() + "");                            
+                                    System.out.println("==============================================================================");                                               
+                                    idCat++;       
+                                }
+    
+                                idCatSelect = Integer.parseInt(teclado.nextLine());
+                                listAlimento.get(newId).setCategoria(listCat.get(idCatSelect));
+    
+                                //Manejo de Supermercados
+                                for(Supermercado supermercado : listSupermercado){ 
+                                    System.out.println("======================================= " + idSup + " =======================================");                                               
+                                    System.out.println("Nombre: " + supermercado.getNombre() + " | Descripción: " + supermercado.getDescripción() + " | Nivel: " + supermercado.getNivel());                            
+                                    System.out.println("==============================================================================");                                               
+                                    idSup++;       
+                                }
+    
+                                idSupSelect = Integer.parseInt(teclado.nextLine());
+                                listAlimento.get(newId).setSupermercado(listSupermercado.get(idSupSelect));
+    
+                                //Información extra
+                                System.out.println("Ingresa el nombre del Alimento: ");
+                                listAlimento.get(newId).setNombre(teclado.nextLine());
+    
+                                System.out.println("Ingresa el valor nutricional del alimento: ");
+                                listAlimento.get(newId).setValNutricional(teclado.nextLine());
+    
+                                System.out.println("Ingresa el stock actual del alimento");
+                                listAlimento.get(newId).setCantidad(Integer.parseInt(teclado.nextLine()));
+                                
+                            }else{
+                                System.out.println("OPCION NO VALIDA...");
+                            }
                         }else{
-                            System.out.println("Opción no valida, intetalo nuevamente.");
+                            System.out.println("NO HAY REGISTROS");
                         }
+
 
                     }else if(ansProd == 2){
                         Alimento newAlimento = new Alimento();
@@ -318,71 +346,80 @@ public class Principal {
                 while(outUser == false){
                     System.out.println("-------------------------------GESTOR: Usuarios");
                     System.out.println("1.............................................VER");        
-                    System.out.println("2.........................................AGREGAR");        
-                    System.out.println("3..........................................EDITAR");                      
-                    System.out.println("4........................................ELIMINAR");                        
-                    System.out.println("5...........................................Salir");      
+                    System.out.println("2.........................................AGREGAR");                                                   
+                    System.out.println("3...........................................Salir");      
                     System.out.println("Por favor, seleccione una opción...");
+                    ansUser = Integer.parseInt(teclado.nextLine());
+                    System.out.println("");
 
                     if(ansUser == 1){
-                        int id = 0;
-                        int newId = 0;
-                        int ansSubUsuario = 0;
 
-                        for(Usuario usuario : listUsuario){ 
-                            System.out.println("================================== " + id  + "   |   " +  usuario.getUsername() + " ==================================");                                               
-                            System.out.println("Nombre: " + usuario.getName() + " | Telefono: " + usuario.getTelefono() + " | Rol: " + usuario.getRol().getNombre());                           
-                            System.out.println("==============================================================================");                                               
-                            id++;       
-                        }
-
-                        System.out.println("Deseas eliminar o editar? ");
-                        System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
-                        ansSubUsuario = Integer.parseInt(teclado.nextLine());
-
-                        if(ansSubUsuario == 1){
-                            System.out.println("Ingresa el id: ");
-                            newId = Integer.parseInt(teclado.nextLine());
-                            listUsuario.remove(newId);
-
-                        }else if(ansSubUsuario == 2){
-                            System.out.println("Ingresa el id: ");
-                            newId = Integer.parseInt(teclado.nextLine());
-
-                            System.out.println("Ingresa el nombre");
-                            listUsuario.get(newId).setName(teclado.nextLine());
-                            System.out.println("Ingresa el username");
-                            listUsuario.get(newId).setUsername(teclado.nextLine());
-                            System.out.println("Ingresa la contraseña");
-                            listUsuario.get(newId).setPassword(teclado.nextLine());
-                            System.out.println("Ingresa el telefono");
-                            listUsuario.get(newId).setTelefono(teclado.nextLine());
+                        if(listUsuario.size() > 0){
+                            int id = 0;
+                            int newId = 0;
+                            int ansSubUsuario = 0;
     
-                            System.out.println("Selecciona un rol");
-                            int idRol = 0;
-                            int idSelect = 0;
-                            for(Rol rol : listRol){ 
-                                System.out.println("======================================= " + idRol + " =======================================");                                               
-                                System.out.println("Nombre: " + rol.getNombre() + " | Descripción: " + rol.getDescripcion());                           
+                            for(Usuario usuario : listUsuario){ 
+                                System.out.println("================================== " + id  + "   |   " +  usuario.getUsername() + " ==================================");                                               
+                                System.out.println("Nombre: " + usuario.getName() + " | Telefono: " + usuario.getTelefono() + " | Rol: " + usuario.getRol().getNombre());                           
                                 System.out.println("==============================================================================");                                               
-                                idRol++;       
+                                id++;       
                             }
-                            idSelect = Integer.parseInt(teclado.nextLine());
-                            listUsuario.get(newId).setRol(listRol.get(idSelect));
+    
+                            System.out.println("Deseas eliminar o editar? ");
+                            System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
+                            ansSubUsuario = Integer.parseInt(teclado.nextLine());
+                            System.out.println("");
+    
+                            if(ansSubUsuario == 1){
+                                System.out.println("Ingresa el id: ");
+                                newId = Integer.parseInt(teclado.nextLine());
+                                listUsuario.remove(newId);
+    
+                            }else if(ansSubUsuario == 2){
+                                System.out.println("Ingresa el id: ");
+                                newId = Integer.parseInt(teclado.nextLine());
+    
+                                System.out.println("Ingresa el nombre");
+                                listUsuario.get(newId).setName(teclado.nextLine());
+                                System.out.println("Ingresa el username");
+                                listUsuario.get(newId).setUsername(teclado.nextLine());
+                                System.out.println("Ingresa la contraseña");
+                                listUsuario.get(newId).setPassword(teclado.nextLine());
+                                System.out.println("Ingresa el telefono");
+                                listUsuario.get(newId).setTelefono(teclado.nextLine());
+        
+                                System.out.println("Selecciona un rol");
+                                int idRol = 0;
+                                int idSelect = 0;
+                                for(Rol rol : listRol){ 
+                                    System.out.println("======================================= " + idRol + " =======================================");                                               
+                                    System.out.println("Nombre: " + rol.getNombre() + " | Descripción: " + rol.getDescripcion());                           
+                                    System.out.println("==============================================================================");                                               
+                                    idRol++;       
+                                }
+                                idSelect = Integer.parseInt(teclado.nextLine());
+                                listUsuario.get(newId).setRol(listRol.get(idSelect));
+                            }else{
+                                System.out.println("OPCION NO VALIDA...");
+                            }
+                        }else{
+                            System.out.println("NO HAY REGISTRROS");
                         }
+
 
                     }else if(ansUser == 2){
 
-                        Usuario usuario = new Usuario();
+                        Usuario newUsuario = new Usuario();
 
                         System.out.println("Ingresa el nombre");
-                        usuario.setName(teclado.nextLine());
+                        newUsuario.setName(teclado.nextLine());
                         System.out.println("Ingresa el username");
-                        usuario.setUsername(teclado.nextLine());
+                        newUsuario.setUsername(teclado.nextLine());
                         System.out.println("Ingresa la contraseña");
-                        usuario.setPassword(teclado.nextLine());
+                        newUsuario.setPassword(teclado.nextLine());
                         System.out.println("Ingresa el telefono");
-                        usuario.setTelefono(teclado.nextLine());
+                        newUsuario.setTelefono(teclado.nextLine());
 
                         System.out.println("Selecciona un rol");
                         int id = 0;
@@ -394,7 +431,9 @@ public class Principal {
                             id++;       
                         }
                         idSelect = Integer.parseInt(teclado.nextLine());
-                        usuario.setRol(listRol.get(idSelect));
+                        newUsuario.setRol(listRol.get(idSelect));
+
+                        listUsuario.add(newUsuario);
 
                     }else if(ansUser == 3){
                         System.out.println("SALIENDO...");
@@ -409,39 +448,50 @@ public class Principal {
                     System.out.println("-------------------------------GESTOR: Roles");
                     System.out.println("1.............................................VER");        
                     System.out.println("2.........................................AGREGAR");                                                   
-                    System.out.println("5...........................................Salir");      
+                    System.out.println("3...........................................Salir");      
                     System.out.println("Por favor, seleccione una opción...");
+                    ansRol = Integer.parseInt(teclado.nextLine());
+                    System.out.println("");
 
                     if(ansRol == 1){
-                        int newId = 0;
-                        int id = 0;
-                        int ansSubRol = 0;
 
-                        for(Rol rol : listRol){ 
-                            System.out.println("======================================= " + id + " =======================================");                                               
-                            System.out.println("Nombre: " + rol.getNombre() + " | Descripción: " + rol.getDescripcion());                           
-                            System.out.println("==============================================================================");                                               
-                            id++;       
+                        if(listRol.size() > 0){
+                            int newId = 0;
+                            int id = 0;
+                            int ansSubRol = 0;
+    
+                            for(Rol rol : listRol){ 
+                                System.out.println("======================================= " + id + " =======================================");                                               
+                                System.out.println("Nombre: " + rol.getNombre() + " | Descripción: " + rol.getDescripcion());                           
+                                System.out.println("==============================================================================");                                               
+                                id++;       
+                            }
+    
+                            System.out.println("Deseas eliminar o editar? ");
+                            System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
+                            ansSubRol = Integer.parseInt(teclado.nextLine());
+                            System.out.println("");
+    
+                            if(ansSubRol == 1){
+                                System.out.println("Ingresa el id: ");
+                                newId = Integer.parseInt(teclado.nextLine());
+                                listRol.remove(newId);
+    
+                            }else if(ansSubRol == 2){
+                                System.out.println("Ingresa el id: ");
+                                newId = Integer.parseInt(teclado.nextLine());
+    
+                                System.out.println("Ingrese el nombre: ");
+                                listRol.get(newId).setNombre(teclado.nextLine());
+                                System.out.println("Ingrese una breve descripción");
+                                listRol.get(newId).setDescripcion(teclado.nextLine());
+                            }else{
+                                System.out.println("OPCION NO VALIDA...");
+                            }
+                        }else{
+                            System.out.println("NO HAY REGISTROS");
                         }
 
-                        System.out.println("Deseas eliminar o editar? ");
-                        System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
-                        ansSubRol = Integer.parseInt(teclado.nextLine());
-
-                        if(ansSubRol == 1){
-                            System.out.println("Ingresa el id: ");
-                            newId = Integer.parseInt(teclado.nextLine());
-                            listRol.remove(newId);
-
-                        }else if(ansSubRol == 2){
-                            System.out.println("Ingresa el id: ");
-                            newId = Integer.parseInt(teclado.nextLine());
-
-                            System.out.println("Ingrese el nombre: ");
-                            listRol.get(newId).setNombre(teclado.nextLine());
-                            System.out.println("Ingrese una breve descripción");
-                            listRol.get(newId).setDescripcion(teclado.nextLine());
-                        }
 
                     }else if(ansRol == 2){
 
@@ -463,27 +513,101 @@ public class Principal {
                 }
 
             }else if(ansPrincipal == 6){
+                while(outFam == false){
+                    System.out.println("-------------------------------GESTOR: Familia");
+                    System.out.println("1.............................................VER");        
+                    System.out.println("2.........................................AGREGAR");                            
+                    System.out.println("3...........................................Salir");      
+                    System.out.println("Por favor, seleccione una opción...");
+                    ansFam = Integer.parseInt(teclado.nextLine());
+                    System.out.println("");
 
+                    if(ansFam == 1){
+
+                        if(listFamilia.size() > 0){
+                            int newId = 0;
+                            int id = 0;
+                            int ansSubFam = 0;
+    
+                            for(Familia familia : listFamilia){ 
+                                System.out.println("======================================= " + id + " =======================================");                                               
+                                System.out.println("Apellido: " + familia.getApellido() + " | Pobreza: " + familia.getSituacionPobreza());                           
+                                System.out.println("Niños: " + familia.getCantNiños() + " | Adultos: " + familia.getCantAdultos() + " | Total: " + familia.getTotalMiembros());                           
+                                System.out.println("==============================================================================");                                               
+                                id++;       
+                            }
+    
+                            System.out.println("Deseas eliminar o editar? ");
+                            System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
+                            ansSubFam = Integer.parseInt(teclado.nextLine());
+                            System.out.println("");
+    
+                            if(ansSubFam == 1){
+                                System.out.println("Ingresa el id: ");
+                                newId = Integer.parseInt(teclado.nextLine());
+                                listFamilia.remove(newId);
+    
+                            }else if(ansSubFam == 2){
+                                System.out.println("Ingresa el id: ");
+                                newId = Integer.parseInt(teclado.nextLine());
+    
+                                System.out.println("Ingresa el apellido: ");       
+                                listFamilia.get(newId).setApellido(teclado.nextLine());                 
+                                System.out.println("Ingresa el total de niños: ");
+                                listFamilia.get(newId).setCantNiños(Integer.parseInt(teclado.nextLine()));
+                                System.out.println("Ingresa el total de adultos: ");
+                                listFamilia.get(newId).setCantAdultos(Integer.parseInt(teclado.nextLine()));
+                                listFamilia.get(newId).setTotalMiembros(listFamilia.get(newId).getCantAdultos() + listFamilia.get(newId).getCantNiños());
+                                System.out.println("Ingresa la situación de pobreza: ");
+                                listFamilia.get(newId).setSituacionPobreza(Integer.parseInt(teclado.nextLine()));
+                            }else{
+                                System.out.println("OPCION NO VALIDA...");
+                            }
+                        }else{
+                            System.out.println("NO HAY REGISTROS");
+                        }
+
+
+                    }else if(ansFam == 2){
+                        Familia newFamilia = new Familia();
+
+                        System.out.println("Ingresa el apellido: ");       
+                        newFamilia.setApellido(teclado.nextLine());                 
+                        System.out.println("Ingresa el total de niños: ");
+                        newFamilia.setCantNiños(Integer.parseInt(teclado.nextLine()));
+                        System.out.println("Ingresa el total de adultos: ");
+                        newFamilia.setCantAdultos(Integer.parseInt(teclado.nextLine()));
+                        newFamilia.setTotalMiembros(newFamilia.getCantAdultos() + newFamilia.getCantNiños());
+                        System.out.println("Ingresa la situación de pobreza: ");
+                        newFamilia.setSituacionPobreza(Integer.parseInt(teclado.nextLine()));
+
+                        listFamilia.add(newFamilia);
+
+                    }else if(ansFam == 3){
+                        System.out.println("SALIENDO...");
+                        outFam = true;
+                    }else{
+                        System.out.println("Opción no valida, intetalo nuevamente.");
+                    }
+                }
 
             }else if(ansPrincipal == 7){
 
                 while(outFac == false){
                     System.out.println("-------------------------------GESTOR: Facturas");
                     System.out.println("1.............................................VER");        
-                    System.out.println("2.........................................AGREGAR");        
-                    System.out.println("3..........................................EDITAR");                      
-                    System.out.println("4........................................ELIMINAR");                        
-                    System.out.println("5...........................................Salir");      
+                    System.out.println("2.........................................AGREGAR");                                              
+                    System.out.println("3...........................................Salir");      
                     System.out.println("Por favor, seleccione una opción...");
 
                     if(ansFac == 1){
-                        //Familia
+                        //Factura
                     }else if(ansFac == 2){
-                        //Familia
+                        //Factura
                     }else if(ansFac == 3){
-                        //Familia
+                        //Factura
                     }else if(ansFac == 4){
-                        //Familia
+                        //Factura
                     }else if(ansFac == 5){
                         System.out.println("SALIENDO...");
                         outFac = true;
