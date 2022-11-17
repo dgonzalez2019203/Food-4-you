@@ -1,25 +1,22 @@
+import java.util.ArrayList;
+
 public class Ticket {
-    private Double subtotal;
     private String  familia;
     private String fecha;
     private String usuario;
-    
+    private ArrayList<Detalle> listDetalle;
+
     public Ticket() {
+
+        ArrayList<Detalle> listDetalle;
+        listDetalle = new ArrayList<Detalle>();
+
     }
 
     public Ticket(Double subtotal, String familia, String fecha, String usuario) {
-        this.subtotal = subtotal;
         this.familia = familia;
         this.fecha = fecha;
         this.usuario = usuario;
-    }
-
-    public Double getSubtotal() {
-        return subtotal;
-    }
-
-    public void setSubtotal(Double subtotal) {
-        this.subtotal = subtotal;
     }
 
     public String getFamilia() {
@@ -46,5 +43,13 @@ public class Ticket {
         this.usuario = usuario;
     }
 
+
+    public ArrayList<Detalle> getListDetalle() {
+        return this.listDetalle;
+    }
+
+    public void setListDetalle(ArrayList<Detalle> listDetalle) {
+        this.listDetalle = listDetalle;
+    }
     
 }

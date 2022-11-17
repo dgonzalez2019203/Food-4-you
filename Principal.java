@@ -46,6 +46,10 @@ public class Principal {
         int ansRol = 0;
         ArrayList<Rol> listRol = new ArrayList<>();
 
+
+        //Variables - Facturas
+        Ticket ticket = new Ticket();
+
         while(outPrincipal == false){
             System.out.println("================================ Bienvenidos Food4You ================================");
             System.out.println("1....................................................................Gestor Categorias");        
@@ -601,14 +605,38 @@ public class Principal {
                     System.out.println("Por favor, seleccione una opción...");
 
                     if(ansFac == 1){
-                        //Factura
+                        
+                        
+
                     }else if(ansFac == 2){
-                        //Factura
+                        Boolean rep = false;
+
+                        while(rep == false){
+                            Detalle newDetalle = new Detalle();
+                            int idAlimento = 0; 
+                            int idAlimentoSelect = 0;
+    
+                            //Agregar alimentos
+                            System.out.println("Ingresa el ID del producto a elegir: ");
+                            for(Alimento alimento : listAlimento){ 
+                                System.out.println("======================================= " + idAlimento + " =======================================");                                               
+                                System.out.println("Nombre: " + alimento.getNombre() + " | Valor Nutricional: " + alimento.getValNutricional() + " |  Cantidad: " + alimento.getCantidad() + "");                            
+                                System.out.println("==============================================================================");                                               
+                                idAlimento++;       
+                            }
+    
+                            idAlimentoSelect = Integer.parseInt(teclado.nextLine());
+                            newDetalle.setAlimento(listAlimento.get(idAlimentoSelect).getNombre());                        
+                            newDetalle.setCantidad(Integer.parseInt(teclado.nextLine()));        
+
+                            int stock = listAlimento.get(idAlimentoSelect).getCantidad();
+                            int newStock = stock - newDetalle.getCantidad();
+
+                            listAlimento.get(idAlimentoSelect).setCantidad(newStock);
+                            ticket.getListDetalle().add(newDetalle);
+                        }
+
                     }else if(ansFac == 3){
-                        //Factura
-                    }else if(ansFac == 4){
-                        //Factura
-                    }else if(ansFac == 5){
                         System.out.println("SALIENDO...");
                         outFac = true;
                     }else{
