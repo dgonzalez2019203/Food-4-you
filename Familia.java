@@ -1,7 +1,7 @@
 public class Familia {
     private String apellido;
     private int totalMiembros;
-    private int cantNiños;
+    private int cantNinos;
     private int cantAdultos;
     private int situacionPobreza;
     
@@ -10,10 +10,10 @@ public class Familia {
     }
 
 
-    public Familia(String apellido, int totalMiembros, int cantNiños, int cantAdultos, int situacionPobreza) {
+    public Familia(String apellido, int totalMiembros, int cantNinos, int cantAdultos, int situacionPobreza) {
         this.apellido = apellido;
         this.totalMiembros = totalMiembros;
-        this.cantNiños = cantNiños;
+        this.cantNinos = cantNinos;
         this.cantAdultos = cantAdultos;
         this.situacionPobreza = situacionPobreza;
     }
@@ -35,12 +35,12 @@ public class Familia {
         this.totalMiembros = totalMiembros;
     }
 
-    public int getCantNiños() {
-        return this.cantNiños;
+    public int getcantNinos() {
+        return this.cantNinos;
     }
 
-    public void setCantNiños(int cantNiños) {
-        this.cantNiños = cantNiños;
+    public void setcantNinos(int cantNinos) {
+        this.cantNinos = cantNinos;
     }
 
     public int getCantAdultos() {

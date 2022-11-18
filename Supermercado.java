@@ -1,6 +1,6 @@
 public class Supermercado {
     private String nombre;
-    private String descripción;
+    private String descripcion;
     private int nivel;
     
 
@@ -8,9 +8,9 @@ public class Supermercado {
     }
 
 
-    public Supermercado(String nombre, String descripción, int nivel) {
+    public Supermercado(String nombre, String descripcion, int nivel) {
         this.nombre = nombre;
-        this.descripción = descripción;
+        this.descripcion = descripcion;
         this.nivel = nivel;
     }
 
@@ -23,12 +23,12 @@ public class Supermercado {
         this.nombre = nombre;
     }
 
-    public String getDescripción() {
-        return this.descripción;
+    public String getDescripcion() {
+        return this.descripcion;
     }
 
-    public void setDescripción(String descripción) {
-        this.descripción = descripción;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public int getNivel() {
@@ -44,7 +44,7 @@ public class Supermercado {
     public String toString() {
         return "{" +
             " nombre='" + getNombre() + "'" +
-            ", descripción='" + getDescripción() + "'" +
+            ", descripcion='" + getDescripcion() + "'" +
             ", nivel='" + getNivel() + "'" +
             "}";
     }

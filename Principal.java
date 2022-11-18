@@ -60,9 +60,15 @@ public class Principal {
             System.out.println("6.......................................................................Gestor Familia");      
             System.out.println("7......................................................................Gestor Facturas");      
             System.out.println("8................................................................................Salir");      
-            System.out.println("Por favor, seleccione una opción...");
-            ansPrincipal = Integer.parseInt(teclado.nextLine());
-            System.out.println("");
+            System.out.println("Por favor, seleccione una opcion...");
+
+            try {
+                ansPrincipal = Integer.parseInt(teclado.nextLine());
+                System.out.println("");
+              }
+              catch(Exception e) {
+                System.out.println("Por favor, ingresa solamente numeros");;
+            }
 
             if(ansPrincipal == 1){
 
@@ -71,9 +77,15 @@ public class Principal {
                     System.out.println("1.............................................VER");        
                     System.out.println("2.........................................AGREGAR");                            
                     System.out.println("3...........................................Salir");      
-                    System.out.println("Por favor, seleccione una opción...");
-                    ansCat = Integer.parseInt(teclado.nextLine());
-                    System.out.println("");
+                    System.out.println("Por favor, seleccione una opcion...");
+
+                    try {
+                        ansCat = Integer.parseInt(teclado.nextLine());
+                        System.out.println("");
+                    }
+                    catch(Exception e) {
+                      System.out.println("Por favor, ingresa solamente numeros");;
+                    }
 
                     if(ansCat == 1){
                         int ansSubCat = 0;
@@ -83,28 +95,43 @@ public class Principal {
                         if(listCat.size() > 0){
                             for(Categoria categoria : listCat){ 
                                 System.out.println("======================================= " + newId + " =======================================");                                               
-                                System.out.println("Nombre: " + categoria.getNombre() + " | Descripción: " + categoria.getDescripcion() + "");                            
+                                System.out.println("Nombre: " + categoria.getNombre() + " | Descripcion: " + categoria.getDescripcion() + "");                            
                                 System.out.println("==============================================================================");                                               
                                 newId++;       
                             }
     
                             System.out.println("Deseas eliminar o editar? ");
                             System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
-                            ansSubCat = Integer.parseInt(teclado.nextLine());
-                            System.out.println("");
+                            try {
+                                ansSubCat = Integer.parseInt(teclado.nextLine());
+                                System.out.println("");;
+                            }catch(Exception e) {
+                              System.out.println("Por favor, ingresa solamente numeros");;
+                            }
+                            
 
                             if(ansSubCat == 1){
-                                System.out.println("Ingresa el id: ");
-                                id = Integer.parseInt(teclado.nextLine());
-                                listCat.remove(id);
+                                try {
+                                    System.out.println("Ingresa el id: ");
+                                    id = Integer.parseInt(teclado.nextLine());
+                                    listCat.remove(id);
+                                }catch(Exception e) {                                
+                                    e.printStackTrace();
+                                }
+                                
     
                             }else if(ansSubCat == 2){
-                                System.out.println("Ingresa el id: ");
-                                id = Integer.parseInt(teclado.nextLine());
+                                try {
+                                    System.out.println("Ingresa el id: ");
+                                    id = Integer.parseInt(teclado.nextLine());
+                                }catch(Exception e) {                                
+                                    System.out.println("Por favor, ingresa solamente numeros");;
+                                }
+                                
                                 
                                 System.out.println("Ingresa el nombre de la categoria: ");
                                 listCat.get(id).setNombre(teclado.nextLine());
-                                System.out.println("Ingresa una breve descripción: ");
+                                System.out.println("Ingresa una breve descripcion: ");
                                 listCat.get(id).setDescripcion(teclado.nextLine());
                             }else{
                                 System.out.println("OPCION NO VALIDA...");
@@ -122,7 +149,7 @@ public class Principal {
 
                         System.out.println("Ingresa el nombre de la categoria: ");
                         newCat.setNombre(teclado.nextLine());
-                        System.out.println("Ingresa una breve descripción: ");
+                        System.out.println("Ingresa una breve descripcion: ");
                         newCat.setDescripcion(teclado.nextLine());
 
                         listCat.add(newCat);
@@ -131,7 +158,7 @@ public class Principal {
                         System.out.println("SALIENDO...");
                         outCat = true;
                     }else{
-                        System.out.println("Opción no valida, intetalo nuevamente.");
+                        System.out.println("Opcion no valida, intetalo nuevamente.");
                     }
                 }
 
@@ -142,8 +169,14 @@ public class Principal {
                     System.out.println("1.............................................VER");        
                     System.out.println("2.........................................AGREGAR");                            
                     System.out.println("3...........................................Salir");      
-                    System.out.println("Por favor, seleccione una opción...");
-                    ansSup = Integer.parseInt(teclado.nextLine());
+                    System.out.println("Por favor, seleccione una opcion...");
+
+                    try {
+                        ansSup = Integer.parseInt(teclado.nextLine());
+                    }catch(Exception e) {
+                      System.out.println("Por favor, ingresa solamente numeros");;
+                    }
+                    
                     System.out.println("");
 
                     if(ansSup == 1){
@@ -155,29 +188,42 @@ public class Principal {
     
                             for(Supermercado supermercado : listSupermercado){ 
                                 System.out.println("======================================= " + newId + " =======================================");                                               
-                                System.out.println("Nombre: " + supermercado.getNombre() + " | Descripción: " + supermercado.getDescripción() + " | Nivel: " + supermercado.getNivel());                            
+                                System.out.println("Nombre: " + supermercado.getNombre() + " | Descripcion: " + supermercado.getDescripcion() + " | Nivel: " + supermercado.getNivel());                            
                                 System.out.println("==============================================================================");                                               
                                 newId++;       
                             }
     
                             System.out.println("Deseas eliminar o editar? ");
                             System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
-                            ansSubSupermercado = Integer.parseInt(teclado.nextLine());
+
+                            try {
+                                ansSubSupermercado = Integer.parseInt(teclado.nextLine());
+                            }catch(Exception e) {
+                              System.out.println("Por favor, ingresa solamente numeros");;
+                            }
                             System.out.println("");
     
                             if(ansSubSupermercado == 1){
-                                System.out.println("Ingresa el id: ");
-                                id = Integer.parseInt(teclado.nextLine());
-                                listSupermercado.remove(id);
-    
+                                try {
+                                    System.out.println("Ingresa el id: ");
+                                    id = Integer.parseInt(teclado.nextLine());
+                                    listSupermercado.remove(id);
+                                }catch(Exception e) {
+                                  e.printStackTrace();
+                                }
+                        
                             }else if(ansSubSupermercado == 2){
-                                System.out.println("Ingresa el id: ");
-                                id = Integer.parseInt(teclado.nextLine());
+                                try {
+                                    System.out.println("Ingresa el id: ");
+                                    id = Integer.parseInt(teclado.nextLine());                  
+                                }catch(Exception e) {
+                                  System.out.println("Por favor, ingresa solamente numeros");;
+                                }                        
                                 
                                 System.out.println("Ingresa el nombre del supermerrcado: ");
                                 listSupermercado.get(id).setNombre(teclado.nextLine());
-                                System.out.println("Ingresa la descripción del supermercado: ");
-                                listSupermercado.get(id).setDescripción(teclado.nextLine());
+                                System.out.println("Ingresa la descripcion del supermercado: ");
+                                listSupermercado.get(id).setDescripcion(teclado.nextLine());
                                 System.out.println("Ingresa el nivel ded supermercado: ");
                                 listSupermercado.get(id).setNivel(Integer.parseInt(teclado.nextLine()));
                             }else{
@@ -194,8 +240,8 @@ public class Principal {
 
                         System.out.println("Ingresa el nombre del supermerrcado: ");
                         supermercado.setNombre(teclado.nextLine());
-                        System.out.println("Ingresa la descripción del supermercado: ");
-                        supermercado.setDescripción(teclado.nextLine());
+                        System.out.println("Ingresa la descripcion del supermercado: ");
+                        supermercado.setDescripcion(teclado.nextLine());
                         System.out.println("Ingresa el nivel del supermercado: ");
                         supermercado.setNivel(Integer.parseInt(teclado.nextLine()));
 
@@ -205,7 +251,7 @@ public class Principal {
                         System.out.println("SALIENDO...");
                         outSup = true;
                     }else{
-                        System.out.println("Opción no valida, intetalo nuevamente.");
+                        System.out.println("Opcion no valida, intetalo nuevamente.");
                     }
                 }
 
@@ -216,8 +262,12 @@ public class Principal {
                     System.out.println("1.............................................VER");        
                     System.out.println("2.........................................AGREGAR");                                               
                     System.out.println("3...........................................Salir");      
-                    System.out.println("Por favor, seleccione una opción...");
-                    ansProd = Integer.parseInt(teclado.nextLine());
+                    System.out.println("Por favor, seleccione una opcion...");
+                    try{
+                        ansProd = Integer.parseInt(teclado.nextLine());
+                    }catch(Exception e){
+                        System.out.println("Por favor, ingresa solamente numeros");
+                    }
                     System.out.println("");
 
                     if(ansProd == 1){       
@@ -233,51 +283,70 @@ public class Principal {
                                 System.out.println("==============================================================================");                                               
                                 id++;       
                             }
-    
-                            
+
                             System.out.println("Deseas eliminar o editar? ");
                             System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
-                            ansSubProd = Integer.parseInt(teclado.nextLine());
+
+                            try {
+                                ansSubProd = Integer.parseInt(teclado.nextLine());                 
+                            }catch(Exception e) {
+                              System.out.println("Por favor, ingresa solamente numeros");;
+                            }     
                             System.out.println("");
     
                             if(ansSubProd == 1){
-                                System.out.println("Ingresa el id: ");
-                                newId = Integer.parseInt(teclado.nextLine());
-                                listAlimento.remove(newId);
-    
+                                try {
+                                    System.out.println("Ingresa el id: ");
+                                    newId = Integer.parseInt(teclado.nextLine());
+                                    listAlimento.remove(newId);
+                                }catch(Exception e) {
+                                    e.printStackTrace();
+                                }    
                             }else if(ansSubProd == 2){
                                 int idCat = 0;
                                 int idCatSelect = 00;                    
                                 int idSup = 0;
                                 int idSupSelect = 0;
     
-                                System.out.println("Ingresa el id: ");
-                                newId = Integer.parseInt(teclado.nextLine());
+                                try {
+                                    System.out.println("Ingresa el id: ");
+                                    newId = Integer.parseInt(teclado.nextLine());
+                                }catch(Exception e) {
+                                  System.out.println("Por favor, ingresa solamente numeros");;
+                                }   
                                 System.out.println("");
     
                                 //Manejo de categorias
                                 System.out.println("Ingresa el ID de la categoria a elegir: ");
                                 for(Categoria categoria : listCat){ 
                                     System.out.println("======================================= " + idCat + " =======================================");                                               
-                                    System.out.println("Nombre: " + categoria.getNombre() + " | Descripción: " + categoria.getDescripcion() + "");                            
+                                    System.out.println("Nombre: " + categoria.getNombre() + " | Descripcion: " + categoria.getDescripcion() + "");                            
                                     System.out.println("==============================================================================");                                               
                                     idCat++;       
                                 }
     
-                                idCatSelect = Integer.parseInt(teclado.nextLine());
-                                listAlimento.get(newId).setCategoria(listCat.get(idCatSelect));
+                                try {
+                                    idCatSelect = Integer.parseInt(teclado.nextLine());
+                                    listAlimento.get(newId).setCategoria(listCat.get(idCatSelect));
+                                }catch(Exception e) {
+                                    e.printStackTrace();
+                                }                                   
     
                                 //Manejo de Supermercados
                                 for(Supermercado supermercado : listSupermercado){ 
                                     System.out.println("======================================= " + idSup + " =======================================");                                               
-                                    System.out.println("Nombre: " + supermercado.getNombre() + " | Descripción: " + supermercado.getDescripción() + " | Nivel: " + supermercado.getNivel());                            
+                                    System.out.println("Nombre: " + supermercado.getNombre() + " | Descripcion: " + supermercado.getDescripcion() + " | Nivel: " + supermercado.getNivel());                            
                                     System.out.println("==============================================================================");                                               
                                     idSup++;       
                                 }
     
-                                idSupSelect = Integer.parseInt(teclado.nextLine());
-                                listAlimento.get(newId).setSupermercado(listSupermercado.get(idSupSelect));
-    
+                                try {
+                                    idSupSelect = Integer.parseInt(teclado.nextLine());
+                                    listAlimento.get(newId).setSupermercado(listSupermercado.get(idSupSelect));
+                                }catch(Exception e) {
+                                    e.printStackTrace();
+                                }   
+                                
                                 //Información extra
                                 System.out.println("Ingresa el nombre del Alimento: ");
                                 listAlimento.get(newId).setNombre(teclado.nextLine());
@@ -307,24 +376,35 @@ public class Principal {
                         System.out.println("Ingresa el ID de la categoria a elegir: ");
                         for(Categoria categoria : listCat){ 
                             System.out.println("======================================= " + idCat + " =======================================");                                               
-                            System.out.println("Nombre: " + categoria.getNombre() + " | Descripción: " + categoria.getDescripcion() + "");                            
+                            System.out.println("Nombre: " + categoria.getNombre() + " | Descripcion: " + categoria.getDescripcion() + "");                            
                             System.out.println("==============================================================================");                                               
                             idCat++;       
                         }
 
-                        idCatSelect = Integer.parseInt(teclado.nextLine());
-                        newAlimento.setCategoria(listCat.get(idCatSelect));
+                        try {
+                            idCatSelect = Integer.parseInt(teclado.nextLine());
+                            newAlimento.setCategoria(listCat.get(idCatSelect));
+                        }catch(Exception e) {
+                            e.printStackTrace();
+                        }  
+                        
 
                         //Manejo de Supermercados
+                        System.out.println("Ingresa el ID del supermercado a elegir: ");
                         for(Supermercado supermercado : listSupermercado){ 
                             System.out.println("======================================= " + idSup + " =======================================");                                               
-                            System.out.println("Nombre: " + supermercado.getNombre() + " | Descripción: " + supermercado.getDescripción() + " | Nivel: " + supermercado.getNivel());                            
+                            System.out.println("Nombre: " + supermercado.getNombre() + " | Descripcion: " + supermercado.getDescripcion() + " | Nivel: " + supermercado.getNivel());                            
                             System.out.println("==============================================================================");                                               
                             idSup++;       
                         }
 
-                        idSupSelect = Integer.parseInt(teclado.nextLine());
-                        newAlimento.setSupermercado(listSupermercado.get(idSupSelect));
+                        try {
+                            idSupSelect = Integer.parseInt(teclado.nextLine());
+                            newAlimento.setSupermercado(listSupermercado.get(idSupSelect));
+                        }catch(Exception e) {
+                            e.printStackTrace();
+                        }  
+                        
 
                         //Información extra
                         System.out.println("Ingresa el nombrre del Alimento: ");
@@ -342,7 +422,7 @@ public class Principal {
                         System.out.println("SALIENDO...");
                         outProd = true;
                     }else{
-                        System.out.println("Opción no valida, intetalo nuevamente.");
+                        System.out.println("Opcion no valida, intetalo nuevamente.");
                     }
                 }
 
@@ -352,9 +432,14 @@ public class Principal {
                     System.out.println("1.............................................VER");        
                     System.out.println("2.........................................AGREGAR");                                                   
                     System.out.println("3...........................................Salir");      
-                    System.out.println("Por favor, seleccione una opción...");
-                    ansUser = Integer.parseInt(teclado.nextLine());
-                    System.out.println("");
+
+                    try {
+                        System.out.println("Por favor, seleccione una opcion...");
+                        ansUser = Integer.parseInt(teclado.nextLine());
+                        System.out.println("");
+                    }catch(Exception e) {
+                        System.out.println("Por favor, ingresa solamente numeros");;
+                    }
 
                     if(ansUser == 1){
 
@@ -372,18 +457,32 @@ public class Principal {
     
                             System.out.println("Deseas eliminar o editar? ");
                             System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
-                            ansSubUsuario = Integer.parseInt(teclado.nextLine());
+
+                            try {
+                                ansSubUsuario = Integer.parseInt(teclado.nextLine());
+                            }catch(Exception e) {
+                              System.out.println("Por favor, ingresa solamente numeros");;
+                            } 
                             System.out.println("");
     
                             if(ansSubUsuario == 1){
-                                System.out.println("Ingresa el id: ");
-                                newId = Integer.parseInt(teclado.nextLine());
-                                listUsuario.remove(newId);
+
+                                try {
+                                    System.out.println("Ingresa el id: ");
+                                    newId = Integer.parseInt(teclado.nextLine());
+                                    listUsuario.remove(newId);
+                                }catch(Exception e) {
+                                  e.printStackTrace();
+                                } 
     
-                            }else if(ansSubUsuario == 2){
-                                System.out.println("Ingresa el id: ");
-                                newId = Integer.parseInt(teclado.nextLine());
-    
+                            }else if(ansSubUsuario == 2){                            
+                                try {
+                                    System.out.println("Ingresa el id: ");
+                                    newId = Integer.parseInt(teclado.nextLine());
+                                }catch(Exception e) {
+                                  System.out.println("Por favor, ingresa solamente numeros");
+                                } 
+
                                 System.out.println("Ingresa el nombre");
                                 listUsuario.get(newId).setName(teclado.nextLine());
                                 System.out.println("Ingresa el username");
@@ -398,12 +497,19 @@ public class Principal {
                                 int idSelect = 0;
                                 for(Rol rol : listRol){ 
                                     System.out.println("======================================= " + idRol + " =======================================");                                               
-                                    System.out.println("Nombre: " + rol.getNombre() + " | Descripción: " + rol.getDescripcion());                           
+                                    System.out.println("Nombre: " + rol.getNombre() + " | Descripcion: " + rol.getDescripcion());                           
                                     System.out.println("==============================================================================");                                               
                                     idRol++;       
                                 }
-                                idSelect = Integer.parseInt(teclado.nextLine());
-                                listUsuario.get(newId).setRol(listRol.get(idSelect));
+
+                                try {
+                                    idSelect = Integer.parseInt(teclado.nextLine());
+                                    listUsuario.get(newId).setRol(listRol.get(idSelect));
+                                }catch(Exception e) {
+                                    e.printStackTrace();
+                                } 
+
+                                
                             }else{
                                 System.out.println("OPCION NO VALIDA...");
                             }
@@ -430,20 +536,24 @@ public class Principal {
                         int idSelect = 0;
                         for(Rol rol : listRol){ 
                             System.out.println("======================================= " + id + " =======================================");                                               
-                            System.out.println("Nombre: " + rol.getNombre() + " | Descripción: " + rol.getDescripcion());                           
+                            System.out.println("Nombre: " + rol.getNombre() + " | Descripcion: " + rol.getDescripcion());                           
                             System.out.println("==============================================================================");                                               
                             id++;       
                         }
-                        idSelect = Integer.parseInt(teclado.nextLine());
-                        newUsuario.setRol(listRol.get(idSelect));
 
-                        listUsuario.add(newUsuario);
+                        try {
+                            idSelect = Integer.parseInt(teclado.nextLine());
+                            newUsuario.setRol(listRol.get(idSelect));
+                            listUsuario.add(newUsuario);
+                        }catch(Exception e) {
+                            e.printStackTrace();
+                        }
 
                     }else if(ansUser == 3){
                         System.out.println("SALIENDO...");
                         outUser = true;
                     }else{
-                        System.out.println("Opción no valida, intetalo nuevamente.");
+                        System.out.println("Opcion no valida, intetalo nuevamente.");
                     }
                 }
 
@@ -453,9 +563,14 @@ public class Principal {
                     System.out.println("1.............................................VER");        
                     System.out.println("2.........................................AGREGAR");                                                   
                     System.out.println("3...........................................Salir");      
-                    System.out.println("Por favor, seleccione una opción...");
-                    ansRol = Integer.parseInt(teclado.nextLine());
-                    System.out.println("");
+                    System.out.println("Por favor, seleccione una opcion...");
+
+                    try {
+                        ansRol = Integer.parseInt(teclado.nextLine());
+                        System.out.println("");
+                    }catch(Exception e) {
+                        System.out.println("Por favor, ingresa solamente numeros");;
+                    }
 
                     if(ansRol == 1){
 
@@ -466,28 +581,41 @@ public class Principal {
     
                             for(Rol rol : listRol){ 
                                 System.out.println("======================================= " + id + " =======================================");                                               
-                                System.out.println("Nombre: " + rol.getNombre() + " | Descripción: " + rol.getDescripcion());                           
+                                System.out.println("Nombre: " + rol.getNombre() + " | Descripcion: " + rol.getDescripcion());                           
                                 System.out.println("==============================================================================");                                               
                                 id++;       
                             }
     
                             System.out.println("Deseas eliminar o editar? ");
                             System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
-                            ansSubRol = Integer.parseInt(teclado.nextLine());
-                            System.out.println("");
+
+                            try {
+                                ansSubRol = Integer.parseInt(teclado.nextLine());
+                                System.out.println("");
+                            }catch(Exception e) {
+                                System.out.println("Por favor, ingresa solamente numeros");;
+                            }                        
     
                             if(ansSubRol == 1){
-                                System.out.println("Ingresa el id: ");
-                                newId = Integer.parseInt(teclado.nextLine());
-                                listRol.remove(newId);
+                                try {
+                                    System.out.println("Ingresa el id: ");
+                                    newId = Integer.parseInt(teclado.nextLine());
+                                    listRol.remove(newId);
+                                }catch(Exception e) {
+                                    e.printStackTrace();
+                                }                                           
     
                             }else if(ansSubRol == 2){
-                                System.out.println("Ingresa el id: ");
-                                newId = Integer.parseInt(teclado.nextLine());
+                                try {
+                                    System.out.println("Ingresa el id: ");
+                                    newId = Integer.parseInt(teclado.nextLine());
+                                }catch(Exception e) {
+                                    System.out.println("Por favor, ingresa solamente numeros");;
+                                }                                           
     
                                 System.out.println("Ingrese el nombre: ");
                                 listRol.get(newId).setNombre(teclado.nextLine());
-                                System.out.println("Ingrese una breve descripción");
+                                System.out.println("Ingrese una breve descripcion");
                                 listRol.get(newId).setDescripcion(teclado.nextLine());
                             }else{
                                 System.out.println("OPCION NO VALIDA...");
@@ -503,7 +631,7 @@ public class Principal {
 
                         System.out.println("Ingrese el nombre: ");
                         newRol.setNombre(teclado.nextLine());
-                        System.out.println("Ingrese una breve descripción");
+                        System.out.println("Ingrese una breve descripcion");
                         newRol.setDescripcion(teclado.nextLine());
 
                         listRol.add(newRol);
@@ -512,7 +640,7 @@ public class Principal {
                         System.out.println("SALIENDO...");
                         outRol = true;
                     }else{
-                        System.out.println("Opción no valida, intetalo nuevamente.");
+                        System.out.println("Opcion no valida, intetalo nuevamente.");
                     }
                 }
 
@@ -522,10 +650,15 @@ public class Principal {
                     System.out.println("1.............................................VER");        
                     System.out.println("2.........................................AGREGAR");                            
                     System.out.println("3...........................................Salir");      
-                    System.out.println("Por favor, seleccione una opción...");
-                    ansFam = Integer.parseInt(teclado.nextLine());
-                    System.out.println("");
+                    System.out.println("Por favor, seleccione una opcion...");
 
+                    try {
+                        ansFam = Integer.parseInt(teclado.nextLine());
+                        System.out.println("");
+                    }catch(Exception e) {
+                        System.out.println("Por favor, ingresa solamente numeros");;
+                    }        
+                
                     if(ansFam == 1){
 
                         if(listFamilia.size() > 0){
@@ -536,32 +669,44 @@ public class Principal {
                             for(Familia familia : listFamilia){ 
                                 System.out.println("======================================= " + id + " =======================================");                                               
                                 System.out.println("Apellido: " + familia.getApellido() + " | Pobreza: " + familia.getSituacionPobreza());                           
-                                System.out.println("Niños: " + familia.getCantNiños() + " | Adultos: " + familia.getCantAdultos() + " | Total: " + familia.getTotalMiembros());                           
+                                System.out.println("Niños: " + familia.getcantNinos() + " | Adultos: " + familia.getCantAdultos() + " | Total: " + familia.getTotalMiembros());                           
                                 System.out.println("==============================================================================");                                               
                                 id++;       
                             }
     
                             System.out.println("Deseas eliminar o editar? ");
                             System.out.println("1. ELIMINAR   |   2.EDITAR   |   3.NO");
-                            ansSubFam = Integer.parseInt(teclado.nextLine());
-                            System.out.println("");
+                            try {
+                                ansSubFam = Integer.parseInt(teclado.nextLine());
+                                System.out.println("");
+                            }catch(Exception e) {
+                                System.out.println("Por favor, ingresa solamente numeros");;
+                            }                             
     
                             if(ansSubFam == 1){
-                                System.out.println("Ingresa el id: ");
-                                newId = Integer.parseInt(teclado.nextLine());
-                                listFamilia.remove(newId);
+                                try {
+                                    System.out.println("Ingresa el id: ");
+                                    newId = Integer.parseInt(teclado.nextLine());
+                                    listFamilia.remove(newId);
+                                }catch(Exception e) {
+                                    e.printStackTrace();
+                                }                                  
     
                             }else if(ansSubFam == 2){
-                                System.out.println("Ingresa el id: ");
-                                newId = Integer.parseInt(teclado.nextLine());
+                                try {
+                                    System.out.println("Ingresa el id: ");
+                                    newId = Integer.parseInt(teclado.nextLine());
+                                }catch(Exception e) {
+                                    System.out.println("Por favor, ingresa solamente numeros");;
+                                }                                  
     
                                 System.out.println("Ingresa el apellido: ");       
                                 listFamilia.get(newId).setApellido(teclado.nextLine());                 
                                 System.out.println("Ingresa el total de niños: ");
-                                listFamilia.get(newId).setCantNiños(Integer.parseInt(teclado.nextLine()));
+                                listFamilia.get(newId).setcantNinos(Integer.parseInt(teclado.nextLine()));
                                 System.out.println("Ingresa el total de adultos: ");
                                 listFamilia.get(newId).setCantAdultos(Integer.parseInt(teclado.nextLine()));
-                                listFamilia.get(newId).setTotalMiembros(listFamilia.get(newId).getCantAdultos() + listFamilia.get(newId).getCantNiños());
+                                listFamilia.get(newId).setTotalMiembros(listFamilia.get(newId).getCantAdultos() + listFamilia.get(newId).getcantNinos());
                                 System.out.println("Ingresa la situación de pobreza: ");
                                 listFamilia.get(newId).setSituacionPobreza(Integer.parseInt(teclado.nextLine()));
                             }else{
@@ -578,10 +723,10 @@ public class Principal {
                         System.out.println("Ingresa el apellido: ");       
                         newFamilia.setApellido(teclado.nextLine());                 
                         System.out.println("Ingresa el total de niños: ");
-                        newFamilia.setCantNiños(Integer.parseInt(teclado.nextLine()));
+                        newFamilia.setcantNinos(Integer.parseInt(teclado.nextLine()));
                         System.out.println("Ingresa el total de adultos: ");
                         newFamilia.setCantAdultos(Integer.parseInt(teclado.nextLine()));
-                        newFamilia.setTotalMiembros(newFamilia.getCantAdultos() + newFamilia.getCantNiños());
+                        newFamilia.setTotalMiembros(newFamilia.getCantAdultos() + newFamilia.getcantNinos());
                         System.out.println("Ingresa la situación de pobreza: ");
                         newFamilia.setSituacionPobreza(Integer.parseInt(teclado.nextLine()));
 
@@ -591,7 +736,7 @@ public class Principal {
                         System.out.println("SALIENDO...");
                         outFam = true;
                     }else{
-                        System.out.println("Opción no valida, intetalo nuevamente.");
+                        System.out.println("Opcion no valida, intetalo nuevamente.");
                     }
                 }
 
@@ -602,7 +747,7 @@ public class Principal {
                     System.out.println("1.............................................VER");        
                     System.out.println("2.........................................AGREGAR");                                              
                     System.out.println("3...........................................Salir");      
-                    System.out.println("Por favor, seleccione una opción...");
+                    System.out.println("Por favor, seleccione una opcion...");
 
                     if(ansFac == 1){
                         
@@ -625,7 +770,12 @@ public class Principal {
                                 idAlimento++;       
                             }
     
-                            idAlimentoSelect = Integer.parseInt(teclado.nextLine());
+                            try {
+                                idAlimentoSelect = Integer.parseInt(teclado.nextLine());
+                            }catch(Exception e) {
+                                System.out.println("Por favor, ingresa solamente numeros");;
+                            }  
+                            
                             newDetalle.setAlimento(listAlimento.get(idAlimentoSelect).getNombre());                        
                             newDetalle.setCantidad(Integer.parseInt(teclado.nextLine()));        
 
@@ -640,7 +790,7 @@ public class Principal {
                         System.out.println("SALIENDO...");
                         outFac = true;
                     }else{
-                        System.out.println("Opción no valida, intetalo nuevamente.");
+                        System.out.println("Opcion no valida, intetalo nuevamente.");
                     }
                 }
 
@@ -648,7 +798,7 @@ public class Principal {
                 System.out.println("SALIENDO...");
                 outPrincipal = true;
             }else{
-                System.out.println("Opción no valida, intetalo nuevamente.");
+                System.out.println("Opcion no valida, intetalo nuevamente.");
             }
         }
     }
