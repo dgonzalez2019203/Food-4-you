@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import db.Conexion;
+
 import java.util.ArrayList;
 
 /**
@@ -10,7 +13,8 @@ import java.util.ArrayList;
 
 public class Principal {
     
-    public static void main(String[]  args){   
+    public static void main(String[]  args){ 
+        Conexion con = new Conexion();  
         //Variables - Generales
         Scanner teclado = new Scanner(System.in);            
         boolean outPrincipal = false;
