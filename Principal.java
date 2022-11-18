@@ -247,7 +247,11 @@ public class Principal {
                         System.out.println("Ingresa la descripcion del supermercado: ");
                         supermercado.setDescripcion(teclado.nextLine());
                         System.out.println("Ingresa el nivel del supermercado: ");
-                        supermercado.setNivel(Integer.parseInt(teclado.nextLine()));
+                        try {
+                            supermercado.setNivel(Integer.parseInt(teclado.nextLine()));                
+                        }catch(Exception e) {
+                          System.out.println("Por favor, ingresa solamente numeros");;
+                        } 
 
                         listSupermercado.add(supermercado);
 
@@ -359,7 +363,11 @@ public class Principal {
                                 listAlimento.get(newId).setValNutricional(teclado.nextLine());
     
                                 System.out.println("Ingresa el stock actual del alimento");
-                                listAlimento.get(newId).setCantidad(Integer.parseInt(teclado.nextLine()));
+                                try {
+                                    listAlimento.get(newId).setCantidad(Integer.parseInt(teclado.nextLine()));
+                                }catch(Exception e) {
+                                  System.out.println("Por favor, ingresa solamente numeros");;
+                                } 
                                 
                             }else{
                                 System.out.println("OPCION NO VALIDA...");
@@ -418,7 +426,11 @@ public class Principal {
                         newAlimento.setValNutricional(teclado.nextLine());
 
                         System.out.println("Ingresa el stock actual del alimento");
-                        newAlimento.setCantidad(Integer.parseInt(teclado.nextLine()));
+                        try {
+                            newAlimento.setCantidad(Integer.parseInt(teclado.nextLine()));
+                        }catch(Exception e) {
+                          System.out.println("Por favor, ingresa solamente numeros");;
+                        } 
 
                         listAlimento.add(newAlimento);
 
@@ -705,14 +717,34 @@ public class Principal {
                                 }                                  
     
                                 System.out.println("Ingresa el apellido: ");       
-                                listFamilia.get(newId).setApellido(teclado.nextLine());                 
+                                listFamilia.get(newId).setApellido(teclado.nextLine());
+                                                                
                                 System.out.println("Ingresa el total de niños: ");
-                                listFamilia.get(newId).setcantNinos(Integer.parseInt(teclado.nextLine()));
+                                try {
+                                    listFamilia.get(newId).setcantNinos(Integer.parseInt(teclado.nextLine()));
+                                }catch(Exception e) {
+                                  System.out.println("Por favor, ingresa solamente numeros");;
+                                } 
+
                                 System.out.println("Ingresa el total de adultos: ");
-                                listFamilia.get(newId).setCantAdultos(Integer.parseInt(teclado.nextLine()));
-                                listFamilia.get(newId).setTotalMiembros(listFamilia.get(newId).getCantAdultos() + listFamilia.get(newId).getcantNinos());
+                                try {
+                                    listFamilia.get(newId).setCantAdultos(Integer.parseInt(teclado.nextLine()));
+                                }catch(Exception e) {
+                                  System.out.println("Por favor, ingresa solamente numeros");;
+                                } 
+
+                                try {
+                                    listFamilia.get(newId).setTotalMiembros(listFamilia.get(newId).getCantAdultos() + listFamilia.get(newId).getcantNinos());
+                                }catch(Exception e) {
+                                  System.out.println("Por favor, ingresa solamente numeros");;
+                                }  
+
                                 System.out.println("Ingresa la situación de pobreza: ");
-                                listFamilia.get(newId).setSituacionPobreza(Integer.parseInt(teclado.nextLine()));
+                                try {
+                                    listFamilia.get(newId).setSituacionPobreza(Integer.parseInt(teclado.nextLine()));
+                                }catch(Exception e) {
+                                  System.out.println("Por favor, ingresa solamente numeros");;
+                                }  
                             }else{
                                 System.out.println("OPCION NO VALIDA...");
                             }
@@ -725,14 +757,29 @@ public class Principal {
                         Familia newFamilia = new Familia();
 
                         System.out.println("Ingresa el apellido: ");       
-                        newFamilia.setApellido(teclado.nextLine());                 
+                        newFamilia.setApellido(teclado.nextLine());         
+
                         System.out.println("Ingresa el total de niños: ");
-                        newFamilia.setcantNinos(Integer.parseInt(teclado.nextLine()));
+                        try {
+                            newFamilia.setcantNinos(Integer.parseInt(teclado.nextLine()));
+                        }catch(Exception e) {
+                          System.out.println("Por favor, ingresa solamente numeros");;
+                        }  
+                        
                         System.out.println("Ingresa el total de adultos: ");
-                        newFamilia.setCantAdultos(Integer.parseInt(teclado.nextLine()));
-                        newFamilia.setTotalMiembros(newFamilia.getCantAdultos() + newFamilia.getcantNinos());
+                        try {
+                            newFamilia.setCantAdultos(Integer.parseInt(teclado.nextLine()));
+                            newFamilia.setTotalMiembros(newFamilia.getCantAdultos() + newFamilia.getcantNinos());
+                        }catch(Exception e) {
+                          System.out.println("Por favor, ingresa solamente numeros");;
+                        }  
+                        
                         System.out.println("Ingresa la situación de pobreza: ");
-                        newFamilia.setSituacionPobreza(Integer.parseInt(teclado.nextLine()));
+                        try {
+                            newFamilia.setSituacionPobreza(Integer.parseInt(teclado.nextLine()));
+                        }catch(Exception e) {
+                          System.out.println("Por favor, ingresa solamente numeros");;
+                        }  
 
                         listFamilia.add(newFamilia);
 
@@ -780,13 +827,21 @@ public class Principal {
                                 System.out.println("Por favor, ingresa solamente numeros");;
                             }  
                             
-                            newDetalle.setAlimento(listAlimento.get(idAlimentoSelect).getNombre());                        
-                            newDetalle.setCantidad(Integer.parseInt(teclado.nextLine()));        
+                            newDetalle.setAlimento(listAlimento.get(idAlimentoSelect).getNombre()); 
+                            try {
+                                newDetalle.setCantidad(Integer.parseInt(teclado.nextLine()));        
+                            }catch(Exception e) {
+                              System.out.println("Por favor, ingresa solamente numeros");;
+                            }                        
 
                             int stock = listAlimento.get(idAlimentoSelect).getCantidad();
                             int newStock = stock - newDetalle.getCantidad();
 
-                            listAlimento.get(idAlimentoSelect).setCantidad(newStock);
+                            try {
+                                listAlimento.get(idAlimentoSelect).setCantidad(newStock);
+                            }catch(Exception e) {
+                              System.out.println("Por favor, ingresa solamente numeros");;
+                            }  
                             ticket.getListDetalle().add(newDetalle);
                         }
 
