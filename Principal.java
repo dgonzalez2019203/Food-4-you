@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 import db.Conexion;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -12,8 +13,11 @@ import java.util.ArrayList;
 
 
 public class Principal {
-    
-    public static void main(String[]  args){ 
+    public static void limpiarConsola() {  
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
+    }
+    public static void main(String[]  args) throws IOException, InterruptedException{ 
         Conexion con = new Conexion();  
         //Variables - Generales
         Scanner teclado = new Scanner(System.in);            
@@ -65,7 +69,7 @@ public class Principal {
             System.out.println("7......................................................................Gestor Facturas");      
             System.out.println("8................................................................................Salir");      
             System.out.println("Por favor, seleccione una opcion...");
-
+           
             try {
                 ansPrincipal = Integer.parseInt(teclado.nextLine());
                 System.out.println("");
@@ -82,7 +86,7 @@ public class Principal {
                     System.out.println("2.........................................AGREGAR");                            
                     System.out.println("3...........................................Salir");      
                     System.out.println("Por favor, seleccione una opcion...");
-
+                    
                     try {
                         ansCat = Integer.parseInt(teclado.nextLine());
                         System.out.println("");
@@ -110,8 +114,10 @@ public class Principal {
                                 ansSubCat = Integer.parseInt(teclado.nextLine());
                                 System.out.println("");;
                             }catch(Exception e) {
-                              System.out.println("Por favor, ingresa solamente numeros");;
-                            }
+                              System.out.println("Por favor, ingresa solamente numeros");
+                            }new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                        
+                             
                             
 
                             if(ansSubCat == 1){
@@ -137,13 +143,17 @@ public class Principal {
                                 listCat.get(id).setNombre(teclado.nextLine());
                                 System.out.println("Ingresa una breve descripcion: ");
                                 listCat.get(id).setDescripcion(teclado.nextLine());
+                                limpiarConsola();
                             }else{
                                 System.out.println("OPCION NO VALIDA...");
-                            }
+                                
+                            } 
 
                         }else{
                             System.out.println("NO HAY REGISTROS");
                         }
+                           
+                       
 
 
 
