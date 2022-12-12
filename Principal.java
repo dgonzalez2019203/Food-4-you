@@ -13,10 +13,7 @@ import java.util.ArrayList;
 
 
 public class Principal {
-    public static void limpiarConsola() {  
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();  
-    }
+
     public static void main(String[]  args) throws IOException, InterruptedException{ 
         Conexion con = new Conexion();  
         //Variables - Generales
